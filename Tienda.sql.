@@ -1,0 +1,1019 @@
+Last login: Tue Mar  5 10:16:18 on ttys000
+usuario@MacBook-Pro-de-usuario ~ % mysql u- root -p
+mysql  Ver 8.0.31 for macos12 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Usage: mysql [OPTIONS] [database]
+  -?, --help          Display this help and exit.
+  -I, --help          Synonym for -?
+  --auto-rehash       Enable automatic rehashing. One doesn't need to use
+                      'rehash' to get table and field completion, but startup
+                      and reconnecting may take a longer time. Disable with
+                      --disable-auto-rehash.
+                      (Defaults to on; use --skip-auto-rehash to disable.)
+  -A, --no-auto-rehash 
+                      No automatic rehashing. One has to use 'rehash' to get
+                      table and field completion. This gives a quicker start of
+                      mysql and disables rehashing on reconnect.
+  --auto-vertical-output 
+                      Automatically switch to vertical output mode if the
+                      result is wider than the terminal width.
+  -B, --batch         Don't use history file. Disable interactive behavior.
+                      (Enables --silent.)
+  --bind-address=name IP address to bind to.
+  --binary-as-hex     Print binary data as hex. Enabled by default for
+                      interactive terminals.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  --column-type-info  Display column type information.
+  -c, --comments      Preserve comments. Send comments to the server. The
+                      default is --skip-comments (discard comments), enable
+                      with --comments.
+  -C, --compress      Use compression in server/client protocol.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check       This is a non-debug version. Catch this and exit.
+  -T, --debug-info    This is a non-debug version. Catch this and exit.
+  -D, --database=name Database to use.
+  --default-character-set=name 
+                      Set the default character set.
+  --delimiter=name    Delimiter to be used.
+  --enable-cleartext-plugin 
+                      Enable/disable the clear text authentication plugin.
+  -e, --execute=name  Execute command and quit. (Disables --force and history
+                      file.)
+  -E, --vertical      Print the output of a query (rows) vertically.
+  -f, --force         Continue even if we get an SQL error.
+  --histignore=name   A colon-separated list of patterns to keep statements
+                      from getting logged into syslog and mysql history.
+  -G, --named-commands 
+                      Enable named commands. Named commands mean this program's
+                      internal commands; see mysql> help . When enabled, the
+                      named commands can be used from any line of the query,
+                      otherwise only from the first line, before an enter.
+                      Disable with --disable-named-commands. This option is
+                      disabled by default.
+  -i, --ignore-spaces Ignore space after function names.
+  --init-command=name SQL Command to execute when connecting to MySQL server.
+                      Will automatically be re-executed when reconnecting.
+  --local-infile      Enable/disable LOAD DATA LOCAL INFILE.
+  -b, --no-beep       Turn off beep on error.
+  -h, --host=name     Connect to host.
+  --dns-srv-name=name Connect to a DNS SRV resource
+  -H, --html          Produce HTML output.
+  -X, --xml           Produce XML output.
+  --line-numbers      Write line numbers for errors.
+                      (Defaults to on; use --skip-line-numbers to disable.)
+  -L, --skip-line-numbers 
+                      Don't write line number for errors.
+  -n, --unbuffered    Flush buffer after each query.
+  --column-names      Write column names in results.
+                      (Defaults to on; use --skip-column-names to disable.)
+  -N, --skip-column-names 
+                      Don't write column names in results.
+  --sigint-ignore     Ignore SIGINT (CTRL-C).
+  -o, --one-database  Ignore statements except those that occur while the
+                      default database is the one named at the command line.
+  --pager[=name]      Pager to use to display results. If you don't supply an
+                      option, the default pager is taken from your ENV variable
+                      PAGER. Valid pagers are less, more, cat [> filename],
+                      etc. See interactive help (\h) also. This option does not
+                      work in batch mode. Disable with --disable-pager. This
+                      option is disabled by default.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given it's asked from the tty.
+  -,, --password1[=name] 
+                      Password for first factor authentication plugin.
+  -,, --password2[=name] 
+                      Password for second factor authentication plugin.
+  -,, --password3[=name] 
+                      Password for third factor authentication plugin.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --prompt=name       Set the mysql prompt to this value.
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  -q, --quick         Don't cache result, print it row by row. This may slow
+                      down the server if the output is suspended. Doesn't use
+                      history file.
+  -r, --raw           Write fields without conversion. Used with --batch.
+  --reconnect         Reconnect if the connection is lost. Disable with
+                      --disable-reconnect. This option is enabled by default.
+                      (Defaults to on; use --skip-reconnect to disable.)
+  -s, --silent        Be more silent. Print results with a tab as separator,
+                      each row on new line.
+  -S, --socket=name   The socket file to use for connection.
+  --server-public-key-path=name 
+                      File path to the server public RSA key in PEM format.
+  --get-server-public-key 
+                      Get server public key
+  --ssl-mode=name     SSL connection mode.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --tls-version=name  TLS version to use, permitted values are: TLSv1.2,
+                      TLSv1.3
+  --ssl-fips-mode=name 
+                      SSL FIPS mode (applies only for OpenSSL); permitted
+                      values are: OFF, ON, STRICT
+  --tls-ciphersuites=name 
+                      TLS v1.3 cipher to use.
+  --ssl-session-data=name 
+                      Session data file to use to enable ssl session reuse
+  --ssl-session-data-continue-on-failed-reuse 
+                      If set to ON, this option will allow connection to
+                      succeed even if session data cannot be reused.
+  -t, --table         Output in table format.
+  --tee=name          Append everything into outfile. See interactive help (\h)
+                      also. Does not work in batch mode. Disable with
+                      --disable-tee. This option is disabled by default.
+  -u, --user=name     User for login if not current user.
+  -U, --safe-updates  Only allow UPDATE and DELETE that uses keys.
+  -U, --i-am-a-dummy  Synonym for option --safe-updates, -U.
+  -v, --verbose       Write more. (-v -v -v gives the table output format).
+  -V, --version       Output version information and exit.
+  -w, --wait          Wait and retry if connection is down.
+  --connect-timeout=# Number of seconds before connection timeout.
+  --max-allowed-packet=# 
+                      The maximum packet length to send to or receive from
+                      server.
+  --net-buffer-length=# 
+                      The buffer size for TCP/IP and socket communication.
+  --select-limit=#    Automatic limit for SELECT when using --safe-updates.
+  --max-join-size=#   Automatic limit for rows in a join when using
+                      --safe-updates.
+  --show-warnings     Show warnings after every statement.
+  -j, --syslog        Log filtered interactive commands to syslog. Filtering of
+                      commands depends on the patterns supplied via histignore
+                      option besides the default patterns.
+  --plugin-dir=name   Directory for client-side plugins.
+  --default-auth=name Default authentication client-side plugin to use.
+  --binary-mode       By default, ASCII '\0' is disallowed and '\r\n' is
+                      translated to '\n'. This switch turns off both features,
+                      and also turns off parsing of all clientcommands except
+                      \C and DELIMITER, in non-interactive mode (for input
+                      piped to mysql or loaded using the 'source' command).
+                      This is necessary when processing output from mysqlbinlog
+                      that may contain blobs.
+  --connect-expired-password 
+                      Notify the server that this client is prepared to handle
+                      expired password sandbox mode.
+  --compression-algorithms=name 
+                      Use compression algorithm in server/client protocol.
+                      Valid values are any combination of
+                      'zstd','zlib','uncompressed'.
+  --zstd-compression-level=# 
+                      Use this compression level in the client/server protocol,
+                      in case --compression-algorithms=zstd. Valid range is
+                      between 1 and 22, inclusive. Default is 3.
+  --load-data-local-dir=name 
+                      Directory path safe for LOAD DATA LOCAL INFILE to read
+                      from.
+  --fido-register-factor=name 
+                      Specifies authentication factor, for which registration
+                      needs to be done.
+  --oci-config-file=name 
+                      Specifies the location of the OCI configuration file.
+                      Default for Linux is ~/.oci/config and %HOME/.oci/config
+                      on Windows.
+
+Default options are read from the following files in the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/mysql/etc/my.cnf ~/.my.cnf 
+The following groups are read: mysql client
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+
+Variables (--variable-name=value)
+and boolean options {FALSE|TRUE}          Value (after reading options)
+----------------------------------------- --------------------------------
+auto-rehash                               TRUE
+auto-vertical-output                      FALSE
+bind-address                              (No default value)
+binary-as-hex                             FALSE
+character-sets-dir                        (No default value)
+column-type-info                          FALSE
+comments                                  FALSE
+compress                                  FALSE
+database                                  (No default value)
+default-character-set                     auto
+delimiter                                 ;
+enable-cleartext-plugin                   FALSE
+vertical                                  FALSE
+force                                     FALSE
+histignore                                (No default value)
+named-commands                            FALSE
+ignore-spaces                             FALSE
+init-command                              (No default value)
+local-infile                              FALSE
+no-beep                                   FALSE
+host                                      (No default value)
+dns-srv-name                              (No default value)
+html                                      FALSE
+xml                                       FALSE
+line-numbers                              TRUE
+unbuffered                                FALSE
+column-names                              TRUE
+sigint-ignore                             FALSE
+port                                      0
+prompt                                    mysql> 
+quick                                     FALSE
+raw                                       FALSE
+reconnect                                 TRUE
+socket                                    (No default value)
+server-public-key-path                    (No default value)
+get-server-public-key                     FALSE
+ssl-ca                                    (No default value)
+ssl-capath                                (No default value)
+ssl-cert                                  (No default value)
+ssl-cipher                                (No default value)
+ssl-key                                   (No default value)
+ssl-crl                                   (No default value)
+ssl-crlpath                               (No default value)
+tls-version                               (No default value)
+tls-ciphersuites                          (No default value)
+ssl-session-data                          (No default value)
+ssl-session-data-continue-on-failed-reuse FALSE
+table                                     FALSE
+user                                      (No default value)
+safe-updates                              FALSE
+i-am-a-dummy                              FALSE
+connect-timeout                           0
+max-allowed-packet                        16777216
+net-buffer-length                         16384
+select-limit                              1000
+max-join-size                             1000000
+show-warnings                             FALSE
+plugin-dir                                (No default value)
+default-auth                              (No default value)
+binary-mode                               FALSE
+connect-expired-password                  FALSE
+compression-algorithms                    (No default value)
+zstd-compression-level                    3
+load-data-local-dir                       (No default value)
+fido-register-factor                      (No default value)
+oci-config-file                           (No default value)
+usuario@MacBook-Pro-de-usuario ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0,00 sec)
+
+mysql> create database Tienda;
+Query OK, 1 row affected (0,01 sec)
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| Tienda             |
++--------------------+
+5 rows in set (0,00 sec)
+
+mysql> use tienda;
+Database changed
+mysql> show tables;
+Empty set (0,00 sec)
+
+mysql> show tables;
+Empty set (0,00 sec)
+
+mysql> DROP DATABASE IF EXISTS tienda;
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> CREATE DATABASE tienda CHARACTER SET utf8mb4;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> USE tienda;
+Database changed
+mysql> 
+mysql> CREATE TABLE fabricante (
+    ->   codigo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    ->   nombre VARCHAR(100) NOT NULL
+    -> );
+Query OK, 0 rows affected (0,02 sec)
+
+mysql> 
+mysql> CREATE TABLE producto (
+    ->   codigo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    ->   nombre VARCHAR(100) NOT NULL,
+    ->   precio DOUBLE NOT NULL,
+    ->   codigo_fabricante INT UNSIGNED NOT NULL,
+    ->   FOREIGN KEY (codigo_fabricante) REFERENCES fabricante(codigo)
+    -> );
+Query OK, 0 rows affected (0,01 sec)
+
+mysql> 
+mysql> INSERT INTO fabricante VALUES(1, 'Asus');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(2, 'Lenovo');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(3, 'Hewlett-Packard');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(4, 'Samsung');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(5, 'Seagate');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(6, 'Crucial');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(7, 'Gigabyte');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(8, 'Huawei');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO fabricante VALUES(9, 'Xiaomi');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> 
+mysql> INSERT INTO producto VALUES(1, 'Disco duro SATA3 1TB', 86.99, 5);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(2, 'Memoria RAM DDR4 8GB', 120, 6);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(3, 'Disco SSD 1 TB', 150.99, 4);
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO producto VALUES(4, 'GeForce GTX 1050Ti', 185, 7);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(5, 'GeForce GTX 1080 Xtreme', 755, 6);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(6, 'Monitor 24 LED Full HD', 202, 1);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(7, 'Monitor 27 LED Full HD', 245.99, 1);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(8, 'Portátil Yoga 520', 559, 2);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(9, 'Portátil Ideapd 320', 444, 2);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(10, 'Impresora HP Deskjet 3720', 59.99, 3);
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO producto VALUES(11, 'Impresora HP Laserjet Pro M26nw', 180, 3); 
+Query OK, 1 row affected (0,00 sec)
+
+mysql> 
+mysql> 
+mysql> show tables;
++------------------+
+| Tables_in_tienda |
++------------------+
+| fabricante       |
+| producto         |
++------------------+
+2 rows in set (0,01 sec)
+
+mysql> SELECT nombre FROM producto;
++---------------------------------+
+| nombre                          |
++---------------------------------+
+| Disco duro SATA3 1TB            |
+| Memoria RAM DDR4 8GB            |
+| Disco SSD 1 TB                  |
+| GeForce GTX 1050Ti              |
+| GeForce GTX 1080 Xtreme         |
+| Monitor 24 LED Full HD          |
+| Monitor 27 LED Full HD          |
+| Portátil Yoga 520               |
+| Portátil Ideapd 320             |
+| Impresora HP Deskjet 3720       |
+| Impresora HP Laserjet Pro M26nw |
++---------------------------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto;
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| Disco duro SATA3 1TB            |  86.99 |
+| Memoria RAM DDR4 8GB            |    120 |
+| Disco SSD 1 TB                  | 150.99 |
+| GeForce GTX 1050Ti              |    185 |
+| GeForce GTX 1080 Xtreme         |    755 |
+| Monitor 24 LED Full HD          |    202 |
+| Monitor 27 LED Full HD          | 245.99 |
+| Portátil Yoga 520               |    559 |
+| Portátil Ideapd 320             |    444 |
+| Impresora HP Deskjet 3720       |  59.99 |
+| Impresora HP Laserjet Pro M26nw |    180 |
++---------------------------------+--------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT * FROM producto;
++--------+---------------------------------+--------+-------------------+
+| codigo | nombre                          | precio | codigo_fabricante |
++--------+---------------------------------+--------+-------------------+
+|      1 | Disco duro SATA3 1TB            |  86.99 |                 5 |
+|      2 | Memoria RAM DDR4 8GB            |    120 |                 6 |
+|      3 | Disco SSD 1 TB                  | 150.99 |                 4 |
+|      4 | GeForce GTX 1050Ti              |    185 |                 7 |
+|      5 | GeForce GTX 1080 Xtreme         |    755 |                 6 |
+|      6 | Monitor 24 LED Full HD          |    202 |                 1 |
+|      7 | Monitor 27 LED Full HD          | 245.99 |                 1 |
+|      8 | Portátil Yoga 520               |    559 |                 2 |
+|      9 | Portátil Ideapd 320             |    444 |                 2 |
+|     10 | Impresora HP Deskjet 3720       |  59.99 |                 3 |
+|     11 | Impresora HP Laserjet Pro M26nw |    180 |                 3 |
++--------+---------------------------------+--------+-------------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio, precio * 1.18 AS precio_usd FROM producto;
++---------------------------------+--------+--------------------+
+| nombre                          | precio | precio_usd         |
++---------------------------------+--------+--------------------+
+| Disco duro SATA3 1TB            |  86.99 | 102.64819999999999 |
+| Memoria RAM DDR4 8GB            |    120 |              141.6 |
+| Disco SSD 1 TB                  | 150.99 |           178.1682 |
+| GeForce GTX 1050Ti              |    185 | 218.29999999999998 |
+| GeForce GTX 1080 Xtreme         |    755 |              890.9 |
+| Monitor 24 LED Full HD          |    202 | 238.35999999999999 |
+| Monitor 27 LED Full HD          | 245.99 |           290.2682 |
+| Portátil Yoga 520               |    559 |             659.62 |
+| Portátil Ideapd 320             |    444 |             523.92 |
+| Impresora HP Deskjet 3720       |  59.99 |            70.7882 |
+| Impresora HP Laserjet Pro M26nw |    180 | 212.39999999999998 |
++---------------------------------+--------+--------------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT nombre AS "nombre de producto", precio AS euros, precio * 1.18 AS "dólares estadounidenses" FROM producto;
++---------------------------------+--------+--------------------------+
+| nombre de producto              | euros  | dólares estadounidenses  |
++---------------------------------+--------+--------------------------+
+| Disco duro SATA3 1TB            |  86.99 |       102.64819999999999 |
+| Memoria RAM DDR4 8GB            |    120 |                    141.6 |
+| Disco SSD 1 TB                  | 150.99 |                 178.1682 |
+| GeForce GTX 1050Ti              |    185 |       218.29999999999998 |
+| GeForce GTX 1080 Xtreme         |    755 |                    890.9 |
+| Monitor 24 LED Full HD          |    202 |       238.35999999999999 |
+| Monitor 27 LED Full HD          | 245.99 |                 290.2682 |
+| Portátil Yoga 520               |    559 |                   659.62 |
+| Portátil Ideapd 320             |    444 |                   523.92 |
+| Impresora HP Deskjet 3720       |  59.99 |                  70.7882 |
+| Impresora HP Laserjet Pro M26nw |    180 |       212.39999999999998 |
++---------------------------------+--------+--------------------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT UPPER(nombre) AS nombre, precio FROM producto;
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| DISCO DURO SATA3 1TB            |  86.99 |
+| MEMORIA RAM DDR4 8GB            |    120 |
+| DISCO SSD 1 TB                  | 150.99 |
+| GEFORCE GTX 1050TI              |    185 |
+| GEFORCE GTX 1080 XTREME         |    755 |
+| MONITOR 24 LED FULL HD          |    202 |
+| MONITOR 27 LED FULL HD          | 245.99 |
+| PORTÁTIL YOGA 520               |    559 |
+| PORTÁTIL IDEAPD 320             |    444 |
+| IMPRESORA HP DESKJET 3720       |  59.99 |
+| IMPRESORA HP LASERJET PRO M26NW |    180 |
++---------------------------------+--------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT LOWER(nombre) AS nombre, precio FROM producto;
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| disco duro sata3 1tb            |  86.99 |
+| memoria ram ddr4 8gb            |    120 |
+| disco ssd 1 tb                  | 150.99 |
+| geforce gtx 1050ti              |    185 |
+| geforce gtx 1080 xtreme         |    755 |
+| monitor 24 led full hd          |    202 |
+| monitor 27 led full hd          | 245.99 |
+| portátil yoga 520               |    559 |
+| portátil ideapd 320             |    444 |
+| impresora hp deskjet 3720       |  59.99 |
+| impresora hp laserjet pro m26nw |    180 |
++---------------------------------+--------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT nombre, UPPER(SUBSTRING(nombre FROM 1 FOR 2)) AS primeros_dos_caracteres FROM fabricante;
++-----------------+-------------------------+
+| nombre          | primeros_dos_caracteres |
++-----------------+-------------------------+
+| Asus            | AS                      |
+| Lenovo          | LE                      |
+| Hewlett-Packard | HE                      |
+| Samsung         | SA                      |
+| Seagate         | SE                      |
+| Crucial         | CR                      |
+| Gigabyte        | GI                      |
+| Huawei          | HU                      |
+| Xiaomi          | XI                      |
++-----------------+-------------------------+
+9 rows in set (0,00 sec)
+
+mysql> SELECT nombre, ROUND(precio) AS precio_redondeado FROM producto;
++---------------------------------+-------------------+
+| nombre                          | precio_redondeado |
++---------------------------------+-------------------+
+| Disco duro SATA3 1TB            |                87 |
+| Memoria RAM DDR4 8GB            |               120 |
+| Disco SSD 1 TB                  |               151 |
+| GeForce GTX 1050Ti              |               185 |
+| GeForce GTX 1080 Xtreme         |               755 |
+| Monitor 24 LED Full HD          |               202 |
+| Monitor 27 LED Full HD          |               246 |
+| Portátil Yoga 520               |               559 |
+| Portátil Ideapd 320             |               444 |
+| Impresora HP Deskjet 3720       |                60 |
+| Impresora HP Laserjet Pro M26nw |               180 |
++---------------------------------+-------------------+
+11 rows in set (0,01 sec)
+
+mysql> SELECT nombre, TRUNCATE(precio, 0) AS precio_entero FROM producto;
++---------------------------------+---------------+
+| nombre                          | precio_entero |
++---------------------------------+---------------+
+| Disco duro SATA3 1TB            |            86 |
+| Memoria RAM DDR4 8GB            |           120 |
+| Disco SSD 1 TB                  |           150 |
+| GeForce GTX 1050Ti              |           185 |
+| GeForce GTX 1080 Xtreme         |           755 |
+| Monitor 24 LED Full HD          |           202 |
+| Monitor 27 LED Full HD          |           245 |
+| Portátil Yoga 520               |           559 |
+| Portátil Ideapd 320             |           444 |
+| Impresora HP Deskjet 3720       |            59 |
+| Impresora HP Laserjet Pro M26nw |           180 |
++---------------------------------+---------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT DISTINCT p.codigo_fabricante FROM producto p;
++-------------------+
+| codigo_fabricante |
++-------------------+
+|                 1 |
+|                 2 |
+|                 3 |
+|                 4 |
+|                 5 |
+|                 6 |
+|                 7 |
++-------------------+
+7 rows in set (0,00 sec)
+
+mysql> SELECT DISTINCT codigo_fabricante FROM producto;
++-------------------+
+| codigo_fabricante |
++-------------------+
+|                 1 |
+|                 2 |
+|                 3 |
+|                 4 |
+|                 5 |
+|                 6 |
+|                 7 |
++-------------------+
+7 rows in set (0,00 sec)
+
+mysql> SELECT nombre FROM fabricante ORDER BY nombre ASC;
++-----------------+
+| nombre          |
++-----------------+
+| Asus            |
+| Crucial         |
+| Gigabyte        |
+| Hewlett-Packard |
+| Huawei          |
+| Lenovo          |
+| Samsung         |
+| Seagate         |
+| Xiaomi          |
++-----------------+
+9 rows in set (0,00 sec)
+
+mysql> SELECT nombre FROM fabricante ORDER BY nombre DESC;
++-----------------+
+| nombre          |
++-----------------+
+| Xiaomi          |
+| Seagate         |
+| Samsung         |
+| Lenovo          |
+| Huawei          |
+| Hewlett-Packard |
+| Gigabyte        |
+| Crucial         |
+| Asus            |
++-----------------+
+9 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto ORDER BY nombre ASC, precio DESC;
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| Disco duro SATA3 1TB            |  86.99 |
+| Disco SSD 1 TB                  | 150.99 |
+| GeForce GTX 1050Ti              |    185 |
+| GeForce GTX 1080 Xtreme         |    755 |
+| Impresora HP Deskjet 3720       |  59.99 |
+| Impresora HP Laserjet Pro M26nw |    180 |
+| Memoria RAM DDR4 8GB            |    120 |
+| Monitor 24 LED Full HD          |    202 |
+| Monitor 27 LED Full HD          | 245.99 |
+| Portátil Ideapd 320             |    444 |
+| Portátil Yoga 520               |    559 |
++---------------------------------+--------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT * FROM fabricante LIMIT 5;
++--------+-----------------+
+| codigo | nombre          |
++--------+-----------------+
+|      1 | Asus            |
+|      2 | Lenovo          |
+|      3 | Hewlett-Packard |
+|      4 | Samsung         |
+|      5 | Seagate         |
++--------+-----------------+
+5 rows in set (0,00 sec)
+
+mysql> SELECT * FROM fabricante OFFSET 3 LIMIT 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3 LIMIT 2' at line 1
+mysql> SELECT * FROM fabricante LIMIT 2 OFFSET 3;
++--------+---------+
+| codigo | nombre  |
++--------+---------+
+|      4 | Samsung |
+|      5 | Seagate |
++--------+---------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto ORDER BY precio ASC LIMIT 1;
++---------------------------+--------+
+| nombre                    | precio |
++---------------------------+--------+
+| Impresora HP Deskjet 3720 |  59.99 |
++---------------------------+--------+
+1 row in set (0,01 sec)
+
+mysql> SELECT nombre, precio FROM producto ORDER BY precio DESC LIMIT 1;
++-------------------------+--------+
+| nombre                  | precio |
++-------------------------+--------+
+| GeForce GTX 1080 Xtreme |    755 |
++-------------------------+--------+
+1 row in set (0,00 sec)
+
+mysql> SELECT nombre FROM producto WHERE codigo_fabricante = 2;
++----------------------+
+| nombre               |
++----------------------+
+| Portátil Yoga 520    |
+| Portátil Ideapd 320  |
++----------------------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio, f.nombre AS fabricante
+    -> FROM producto p
+    -> INNER JOIN fabricante f ON p.codigo_fabricante = f.codigo;
++---------------------------------+--------+-----------------+
+| nombre                          | precio | fabricante      |
++---------------------------------+--------+-----------------+
+| Monitor 24 LED Full HD          |    202 | Asus            |
+| Monitor 27 LED Full HD          | 245.99 | Asus            |
+| Portátil Yoga 520               |    559 | Lenovo          |
+| Portátil Ideapd 320             |    444 | Lenovo          |
+| Impresora HP Deskjet 3720       |  59.99 | Hewlett-Packard |
+| Impresora HP Laserjet Pro M26nw |    180 | Hewlett-Packard |
+| Disco SSD 1 TB                  | 150.99 | Samsung         |
+| Disco duro SATA3 1TB            |  86.99 | Seagate         |
+| Memoria RAM DDR4 8GB            |    120 | Crucial         |
+| GeForce GTX 1080 Xtreme         |    755 | Crucial         |
+| GeForce GTX 1050Ti              |    185 | Gigabyte        |
++---------------------------------+--------+-----------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio, f.nombre AS fabricante
+    -> FROM producto p
+    -> INNER JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> ORDER BY fabricante ASC;
++---------------------------------+--------+-----------------+
+| nombre                          | precio | fabricante      |
++---------------------------------+--------+-----------------+
+| Monitor 24 LED Full HD          |    202 | Asus            |
+| Monitor 27 LED Full HD          | 245.99 | Asus            |
+| Memoria RAM DDR4 8GB            |    120 | Crucial         |
+| GeForce GTX 1080 Xtreme         |    755 | Crucial         |
+| GeForce GTX 1050Ti              |    185 | Gigabyte        |
+| Impresora HP Deskjet 3720       |  59.99 | Hewlett-Packard |
+| Impresora HP Laserjet Pro M26nw |    180 | Hewlett-Packard |
+| Portátil Yoga 520               |    559 | Lenovo          |
+| Portátil Ideapd 320             |    444 | Lenovo          |
+| Disco SSD 1 TB                  | 150.99 | Samsung         |
+| Disco duro SATA3 1TB            |  86.99 | Seagate         |
++---------------------------------+--------+-----------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT p.codigo, p.nombre, p.codigo_fabricante, f.nombre AS fabricante
+    -> FROM producto p
+    -> INNER JOIN fabricante f ON p.codigo_fabricante = f.codigo;
++--------+---------------------------------+-------------------+-----------------+
+| codigo | nombre                          | codigo_fabricante | fabricante      |
++--------+---------------------------------+-------------------+-----------------+
+|      6 | Monitor 24 LED Full HD          |                 1 | Asus            |
+|      7 | Monitor 27 LED Full HD          |                 1 | Asus            |
+|      8 | Portátil Yoga 520               |                 2 | Lenovo          |
+|      9 | Portátil Ideapd 320             |                 2 | Lenovo          |
+|     10 | Impresora HP Deskjet 3720       |                 3 | Hewlett-Packard |
+|     11 | Impresora HP Laserjet Pro M26nw |                 3 | Hewlett-Packard |
+|      3 | Disco SSD 1 TB                  |                 4 | Samsung         |
+|      1 | Disco duro SATA3 1TB            |                 5 | Seagate         |
+|      2 | Memoria RAM DDR4 8GB            |                 6 | Crucial         |
+|      5 | GeForce GTX 1080 Xtreme         |                 6 | Crucial         |
+|      4 | GeForce GTX 1050Ti              |                 7 | Gigabyte        |
++--------+---------------------------------+-------------------+-----------------+
+11 rows in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio, f.nombre AS fabricante
+    -> FROM producto p
+    -> INNER JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> ORDER BY precio ASC LIMIT 1;
++---------------------------+--------+-----------------+
+| nombre                    | precio | fabricante      |
++---------------------------+--------+-----------------+
+| Impresora HP Deskjet 3720 |  59.99 | Hewlett-Packard |
++---------------------------+--------+-----------------+
+1 row in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio, f.nombre AS fabricante
+    -> FROM producto p
+    -> INNER JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> ORDER BY precio DESC LIMIT 1;
++-------------------------+--------+------------+
+| nombre                  | precio | fabricante |
++-------------------------+--------+------------+
+| GeForce GTX 1080 Xtreme |    755 | Crucial    |
++-------------------------+--------+------------+
+1 row in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto
+    -> WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo');
++----------------------+--------+
+| nombre               | precio |
++----------------------+--------+
+| Portátil Yoga 520    |    559 |
+| Portátil Ideapd 320  |    444 |
++----------------------+--------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto
+    -> WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Crucial')
+    -> AND precio > 200;
++-------------------------+--------+
+| nombre                  | precio |
++-------------------------+--------+
+| GeForce GTX 1080 Xtreme |    755 |
++-------------------------+--------+
+1 row in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio
+    -> FROM producto p
+    -> JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> WHERE f.nombre = 'Asus' OR f.nombre = 'Hewlett-Packard' OR f.nombre = 'Seagate'; 
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| Monitor 24 LED Full HD          |    202 |
+| Monitor 27 LED Full HD          | 245.99 |
+| Impresora HP Deskjet 3720       |  59.99 |
+| Impresora HP Laserjet Pro M26nw |    180 |
+| Disco duro SATA3 1TB            |  86.99 |
++---------------------------------+--------+
+5 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto
+    -> WHERE codigo_fabricante IN (
+    ->     SELECT codigo FROM fabricante
+    ->     WHERE nombre IN ('Asus', 'Hewlett-Packard', 'Seagate')
+    -> );
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| Monitor 24 LED Full HD          |    202 |
+| Monitor 27 LED Full HD          | 245.99 |
+| Impresora HP Deskjet 3720       |  59.99 |
+| Impresora HP Laserjet Pro M26nw |    180 |
+| Disco duro SATA3 1TB            |  86.99 |
++---------------------------------+--------+
+5 rows in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio
+    -> FROM producto p
+    -> JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> WHERE LOWER(SUBSTRING(f.nombre FROM LENGTH(f.nombre) FOR 1)) = 'e';
++----------------------+--------+
+| nombre               | precio |
++----------------------+--------+
+| Disco duro SATA3 1TB |  86.99 |
+| GeForce GTX 1050Ti   |    185 |
++----------------------+--------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio
+    -> FROM producto p
+    -> JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> WHERE POSITION('w' IN f.nombre) > 0;
++---------------------------------+--------+
+| nombre                          | precio |
++---------------------------------+--------+
+| Impresora HP Deskjet 3720       |  59.99 |
+| Impresora HP Laserjet Pro M26nw |    180 |
++---------------------------------+--------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT p.nombre, p.precio, f.nombre AS fabricante
+    -> FROM producto p
+    -> JOIN fabricante f ON p.codigo_fabricante = f.codigo
+    -> WHERE p.precio >= 180
+    -> ORDER BY p.precio DESC, p.nombre ASC;
++---------------------------------+--------+-----------------+
+| nombre                          | precio | fabricante      |
++---------------------------------+--------+-----------------+
+| GeForce GTX 1080 Xtreme         |    755 | Crucial         |
+| Portátil Yoga 520               |    559 | Lenovo          |
+| Portátil Ideapd 320             |    444 | Lenovo          |
+| Monitor 27 LED Full HD          | 245.99 | Asus            |
+| Monitor 24 LED Full HD          |    202 | Asus            |
+| GeForce GTX 1050Ti              |    185 | Gigabyte        |
+| Impresora HP Laserjet Pro M26nw |    180 | Hewlett-Packard |
++---------------------------------+--------+-----------------+
+7 rows in set (0,00 sec)
+
+mysql> SELECT DISTINCT f.codigo, f.nombre
+    -> FROM fabricante f
+    -> JOIN producto p ON f.codigo = p.codigo_fabricante;
++--------+-----------------+
+| codigo | nombre          |
++--------+-----------------+
+|      1 | Asus            |
+|      2 | Lenovo          |
+|      3 | Hewlett-Packard |
+|      4 | Samsung         |
+|      5 | Seagate         |
+|      6 | Crucial         |
+|      7 | Gigabyte        |
++--------+-----------------+
+7 rows in set (0,00 sec)
+
+mysql> SELECT f.codigo, f.nombre AS fabricante, p.nombre AS producto
+    -> FROM fabricante f
+    -> LEFT JOIN producto p ON f.codigo = p.codigo_fabricante;
++--------+-----------------+---------------------------------+
+| codigo | fabricante      | producto                        |
++--------+-----------------+---------------------------------+
+|      1 | Asus            | Monitor 24 LED Full HD          |
+|      1 | Asus            | Monitor 27 LED Full HD          |
+|      2 | Lenovo          | Portátil Yoga 520               |
+|      2 | Lenovo          | Portátil Ideapd 320             |
+|      3 | Hewlett-Packard | Impresora HP Deskjet 3720       |
+|      3 | Hewlett-Packard | Impresora HP Laserjet Pro M26nw |
+|      4 | Samsung         | Disco SSD 1 TB                  |
+|      5 | Seagate         | Disco duro SATA3 1TB            |
+|      6 | Crucial         | Memoria RAM DDR4 8GB            |
+|      6 | Crucial         | GeForce GTX 1080 Xtreme         |
+|      7 | Gigabyte        | GeForce GTX 1050Ti              |
+|      8 | Huawei          | NULL                            |
+|      9 | Xiaomi          | NULL                            |
++--------+-----------------+---------------------------------+
+13 rows in set (0,00 sec)
+
+mysql> SELECT f.codigo, f.nombre AS fabricante
+    -> FROM fabricante f
+    -> LEFT JOIN producto p ON f.codigo = p.codigo_fabricante
+    -> WHERE p.codigo_fabricante IS NULL;
++--------+------------+
+| codigo | fabricante |
++--------+------------+
+|      8 | Huawei     |
+|      9 | Xiaomi     |
++--------+------------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto, fabricante
+    -> WHERE producto.codigo_fabricante = fabricante.codigo
+    -> AND fabricante.nombre = 'Lenovo';
+ERROR 1052 (23000): Column 'nombre' in field list is ambiguous
+mysql> SELECT * FROM producto
+    -> WHERE precio = (SELECT MAX(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo'));
++--------+--------------------+--------+-------------------+
+| codigo | nombre             | precio | codigo_fabricante |
++--------+--------------------+--------+-------------------+
+|      8 | Portátil Yoga 520  |    559 |                 2 |
++--------+--------------------+--------+-------------------+
+1 row in set (0,00 sec)
+
+mysql> SELECT nombre FROM producto
+    -> WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo')
+    -> ORDER BY precio DESC LIMIT 1;
++--------------------+
+| nombre             |
++--------------------+
+| Portátil Yoga 520  |
++--------------------+
+1 row in set (0,00 sec)
+
+mysql> SELECT nombre FROM producto
+    -> WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Hewlett-Packard')
+    -> ORDER BY precio ASC LIMIT 1;
++---------------------------+
+| nombre                    |
++---------------------------+
+| Impresora HP Deskjet 3720 |
++---------------------------+
+1 row in set (0,00 sec)
+
+mysql> SELECT * FROM producto
+    -> WHERE precio >= (SELECT MAX(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo'));
++--------+-------------------------+--------+-------------------+
+| codigo | nombre                  | precio | codigo_fabricante |
++--------+-------------------------+--------+-------------------+
+|      5 | GeForce GTX 1080 Xtreme |    755 |                 6 |
+|      8 | Portátil Yoga 520       |    559 |                 2 |
++--------+-------------------------+--------+-------------------+
+2 rows in set (0,00 sec)
+
+mysql> SELECT nombre, precio FROM producto
+    -> WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Asus')
+    -> AND precio > (SELECT AVG(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Asus'));
++------------------------+--------+
+| nombre                 | precio |
++------------------------+--------+
+| Monitor 27 LED Full HD | 245.99 |
++------------------------+--------+
+1 row in set (0,00 sec)
+
+mysql> SELECT * FROM producto WHERE precio >= (SELECT MAX(precio) FROM producto WHERE cmysql> SELECT nombre, precio FROM producto, fabricante
+    ->     -> WHERE producto.codigo_fabricante = fabricante.codigo
+    ->     -> AND fabricante.nombre = 'Lenovo';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> WHERE producto.codigo_fabricante = fabricante.codigo
+    -> AND fabricante.no' at line 2
+mysql> SELECT producto.nombre, producto.precio
+    -> FROM producto, fabricante
+    -> WHERE producto.codigo_fabricante = fabricante.codigo
+    -> AND fabricante.nombre = 'Lenovo';
++----------------------+--------+
+| nombre               | precio |
++----------------------+--------+
+| Portátil Yoga 520    |    559 |
+| Portátil Ideapd 320  |    444 |
++----------------------+--------+
+2 rows in set (0,00 sec)
+
+mysql> 
